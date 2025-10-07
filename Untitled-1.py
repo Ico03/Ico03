@@ -1,8 +1,8 @@
 """inserimento dati"""
 
 a= int(input('sei in grado di calcolare una media di km: \n1) settimanale \n2) mensile \n3) annuali\n'))
-while a<1 | a>3:
-    a= int(input('valore inserito non valido  '))
+while a>3 or a<1:
+    a= int(input('valore inserito non valido  (1 - 2 - 3)'))
 
 if a==1 :
     km= int(input('inserire chilometraggio settimanale:'))
@@ -10,15 +10,15 @@ if a==1 :
     km= [km, km*30, km*365]         #creazione di un array con km settimanali, mensili e annuali
 elif a==2:
     km= int(input('inserire chilometraggio mensile:'))
-    print("considernado una media di circa: \n", km/30, "km a settimana \t", km, "km al mese\t", km*12, "km all'anno")
-    km= [round(km/30,2), km, round(km*12,2)]          #creazione di un array con km settimanali, mensili e annuali
-else:
+    print("considernado una media di circa: \n", round(km/30,2), "km a settimana \t", km, "km al mese\t", km*12, "km all'anno")
+    km= [round(km/30,2), km, km*12]          #creazione di un array con km settimanali, mensili e annuali
+else :
     km= int(input('inserire chilometraggio annuale:'))
-    print("considernado una media di circa: \n", km/365, "km a settimana \t", km/12, "km al mese\t", km, "km all'anno")
+    print("considernado una media di circa: \n", round(km/365, 2), "km a settimana \t", round(km/12, 2), "km al mese\t", km, "km all'anno")
     km= [round(km/365, 2), round(km/12, 2), km]         #creazione di un array con km settimanali, mensili e annuali
     
 a= int(input('consumi auto, preferisci calcolarli in: \n1)km/l \n2)l/100km\n'))
-while a<1 | a>2:
+while a>2 or a<1:
     a= int(input("valore inserito non valido (1 - 2)"))
 
 if a==1:
@@ -38,5 +38,10 @@ print("consumo :", cons, "\tcosto: ", cash, "\tcapienza serbatoio: ", serb) #out
 consumo_carburante_mensile= round((km[1])/cons[0], 2)
 costo_carburante_mensile= round(consumo_carburante_mensile*cash)
 print("consumo di carburante mensile: ", consumo_carburante_mensile)    #output per verifia contenuto variabili
+print("consumo di carburante settimanale: ", round(consumo_carburante_mensile/30, 2))    #output per verifia contenuto variabili
+print("consumo di carburante annuale: ", consumo_carburante_mensile*12)    #output per verifia contenuto variabili
+
 print("costi carburante mensili: ", costo_carburante_mensile)   #output per verifia contenuto variabili
+print("costi carburante settimanale: ", round(costo_carburante_mensile/30,2))   #output per verifia contenuto variabili
+print("costi carburante annuale: ", costo_carburante_mensile*12)   #output per verifia contenuto variabili
 
